@@ -16,7 +16,7 @@ class FlaskAppTests(unittest.TestCase):
     def test_multiply_success(self):
         r = self.app.get('/multiply?a=5&b=2')
         self.assertEqual(r.status_code, 200)
-        self.assertEqual(r.data, b'9.0')
+        self.assertEqual(r.data, b'10.0')
 
 if __name__ == '__main__':
     unittest.main()
