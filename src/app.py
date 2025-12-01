@@ -8,6 +8,24 @@ app = Flask(__name__)
 def hello():
     return 'Hello World!'
 
+@app.rount('/subtruct', methods=['GET'])
+def subtruct():
+    try:
+        a = float(request.args.get('a'))
+        b = float(request.args.get('b'))
+    except (TypeError, ValueError):
+        return 'a и b - НЕ числа'
+    return str(a - b)
+
+@app.rount('/add', methods=['GET'])
+def add():
+    try:
+        a = float(request.args.get('a'))
+        b = float(request.args.get('b'))
+    except (TypeError, ValueError):
+        return 'a и b - НЕ числа'
+    return str(a + b)
+
 @app.route('/multiply', methods=['GET'])
 def multiply():
     try:
@@ -16,6 +34,17 @@ def multiply():
     except (TypeError, ValueError):
         return 'a и b - НЕ числа'
     return str(a * b)
+
+@app.route('/division', methods=['GET'])
+def division():
+    try:
+        a = float(request.args.get('a'))
+        b = float(request.args.get('b'))
+        return str(a / b)
+    except (TypeError, ValueError):
+        return 'a и b - НЕ числа'
+    except ZeroDivisionError:
+        return 'Деление на 0 невозможно'
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
