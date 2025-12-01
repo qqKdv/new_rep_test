@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hello():
     return 'Hello World!'
 
-@app.rount('/subtruct', methods=['GET'])
+@app.route('/subtruct', methods=['GET'])
 def subtruct():
     try:
         a = float(request.args.get('a'))
@@ -17,7 +17,7 @@ def subtruct():
         return 'a и b - НЕ числа'
     return str(a - b)
 
-@app.rount('/add', methods=['GET'])
+@app.route('/add', methods=['GET'])
 def add():
     try:
         a = float(request.args.get('a'))
